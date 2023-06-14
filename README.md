@@ -21,7 +21,7 @@ Your Ruby version is 3.0.2, but your Gemfile specified 2.7.8
 ## Comando para correção do erro
 docker-compose run app bundle update
 
-## Proximos comandos
+## Proximos comandos  
 
 $ sudo chown -R $USER:$USER .
 
