@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :profiles
   resources :applicants, only: [:index, :new, :create]
   resources :positions
   resources :companies, only: [:new, :edit, :create, :update]
