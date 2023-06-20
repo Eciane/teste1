@@ -5,8 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-user = User.create!(email: 'user@gmail.com', password: '123456', password_confirmation: '123456')
+if User.count == 0
+  User.create!(email: 'user@gmail.com', password: '123456', password_confirmation: '123456')
+end
 
+if Company.count == 0
 company = Company.create!(name: 'Company Tech', url: 'https://google.com', user_id: user.id)
 company.logo.attach(io: File.open("#{Rails.root}/spec/fixtures/images/logo-tech.jpeg"), filename: 'logo-tech.jpeg')
 
@@ -19,6 +22,7 @@ cities_and_states = [['CE', 'Fortaleza'], ['SP', 'Sao Paulo'], ['RJ', 'Rio de Ja
     description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae fuga, nobis culpa quidem ipsum, quod exercitationem similique aliquam dolorem veniam praesentium! Adipisci ad deserunt illo, ab omnis distinctio quae at.',
     summary: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vitae fuga, nobis culpa quidem ipsum, quod exercitationem similique aliquam dolorem veniam praesentium! Adipisci ad deserunt illo, ab omnis distinctio quae at.'
   )
+end
 
 if Profile.count == 0
   Profile.create!(name: 'Anuciante')
