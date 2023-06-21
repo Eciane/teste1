@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_19_200534) do
+ActiveRecord::Schema.define(version: 2023_06_21_175933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,15 @@ ActiveRecord::Schema.define(version: 2023_06_19_200534) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_companies_on_user_id"
+  end
+
+  create_table "position_users", force: :cascade do |t|
+    t.bigint "position_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["position_id"], name: "index_position_users_on_position_id"
+    t.index ["user_id"], name: "index_position_users_on_user_id"
   end
 
   create_table "positions", force: :cascade do |t|
@@ -105,6 +114,8 @@ ActiveRecord::Schema.define(version: 2023_06_19_200534) do
   add_foreign_key "applicants", "positions"
   add_foreign_key "applicants", "users"
   add_foreign_key "companies", "users"
+  add_foreign_key "position_users", "positions"
+  add_foreign_key "position_users", "users"
   add_foreign_key "positions", "companies"
   add_foreign_key "profile_users", "profiles"
   add_foreign_key "profile_users", "users"

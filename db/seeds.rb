@@ -7,6 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 if User.count == 0
   User.create!(email: 'user@gmail.com', password: '123456', password_confirmation: '123456')
+  User.create!(email: 'test@gmail.com', password: '123456', password_confirmation: '123456')
+  ProfileUser.create!(user_id: 2, profile_id: 1)
+
 end
 
 if Company.count == 0
@@ -27,4 +30,7 @@ end
 if Profile.count == 0
   Profile.create!(name: 'Anuciante')
   Profile.create!(name: 'Candidato')
+  
 end
+
+
